@@ -1,0 +1,9 @@
+image: gitpod/workspace-mysql:latest
+
+tasks:
+    - name: setup mysql and update packages
+      init: |
+        sudo apt-get update -y
+        sudo apt-get upgrade -y
+        mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'abc123';"
+        mysql -u root -pabc123 < mysql
